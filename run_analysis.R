@@ -58,5 +58,7 @@ totalDataset$subject <- as.factor(totalDataset$subject)
 totalDataset.melted <- melt(totalDataset, id = c("subject", "activity"))
 totalDataset.mean <- dcast(totalDataset.melted, subject + activity ~ variable, mean)
 
+
+#write.csv(totalDataset.mean, file = "tidyDataset.csv")
 # Write output to file
-write.csv(totalDataset.mean, file = "tidyDataset.csv")
+write.table(totalDataset.mean, file = "tidyDataset.txt", row.name=FALSE)
